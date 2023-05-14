@@ -67,7 +67,16 @@ def AIplay(board, maxdepth = 4, team = 'O'):
       if boardFunctions.checkWin(board, row - 1, selection, team) >= 4:
         win = True
       hitPiece = True
-      
+      if row == 1:
+        for i in range(5):
+          board[row-1][selection] = emptySpace
+          boardFunctions.clear_output()
+          boardFunctions.printBoard(board)
+          time.sleep(0.1)
+          board[row-1][selection] = team
+          boardFunctions.clear_output()
+          boardFunctions.printBoard(board)
+          time.sleep(0.1)
       break
     else:
       board[row][selection] = team
